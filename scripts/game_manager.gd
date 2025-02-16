@@ -4,6 +4,8 @@ var score = 0
 var current_level = 1
 var level_path = "res://scenes/levels/"
 
+@onready var sidebar: PanelContainer = $"../CanvasLayer/Sidebar"
+
 func add_point():
 	score += 1
 

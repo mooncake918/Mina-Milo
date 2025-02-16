@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwsd7s8wnvwia"]
+[gd_scene load_steps=20 format=3 uid="uid://bwsd7s8wnvwia"]
 
 [ext_resource type="Texture2D" uid="uid://bfd3id1cedlb6" path="res://assets/sprites/world_tileset.png" id="1_0l2w1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_a2ey8"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c1hunafgedaen" path="res://scenes/functionality/player2.tscn" id="11_k1fhy"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="13_qcv1y"]
 [ext_resource type="PackedScene" uid="uid://dimp3lbbrbg8r" path="res://scenes/functionality/fish.tscn" id="14_nexvl"]
+[ext_resource type="PackedScene" uid="uid://bcf5ap05v6756" path="res://scenes/functionality/sidebar.tscn" id="15_dppaj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48a1t"]
 texture = ExtResource("1_0l2w1")
@@ -296,3 +297,12 @@ position = Vector2(200, -105)
 
 [node name="Fish3" parent="." instance=ExtResource("14_nexvl")]
 position = Vector2(400, -44)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sidebar" parent="CanvasLayer" instance=ExtResource("15_dppaj")]
+anchors_preset = 1
+anchor_bottom = 0.0
+offset_left = -358.0
+offset_bottom = 620.0
+grow_vertical = 1
