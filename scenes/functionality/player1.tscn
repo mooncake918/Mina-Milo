@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://bh2k86m3xqxes"]
+
+[ext_resource type="Script" path="res://scripts/player1.gd" id="1_on6a0"]
+[ext_resource type="Texture2D" uid="uid://but6o7ekx5ybs" path="res://assets/sprites/cat_spritesheet.png" id="2_57csj"]
+[ext_resource type="AudioStream" uid="uid://cpk87r21ka2oy" path="res://assets/sounds/cat_meow.wav" id="3_36djf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw4ur"]
+atlas = ExtResource("2_57csj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bely"]
+atlas = ExtResource("2_57csj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnu2a"]
+atlas = ExtResource("2_57csj")
+region = Rect2(0, 19, 25, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqmxx"]
+atlas = ExtResource("2_57csj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv7be"]
+atlas = ExtResource("2_57csj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h4od"]
+atlas = ExtResource("2_57csj")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra11k"]
+atlas = ExtResource("2_57csj")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnrt7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw4ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bely")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnu2a")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqmxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv7be")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h4od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra11k")
+}],
+"loop": true,
+"name": &"run",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwoyx"]
+radius = 5.0
+
+[node name="Player1" type="CharacterBody2D" groups=["players"]]
+z_index = 5
+collision_layer = 6
+collision_mask = 129
+script = ExtResource("1_on6a0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -7)
+sprite_frames = SubResource("SpriteFrames_nnrt7")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_dwoyx")
+
+[node name="JumpCatAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -7)
+stream = ExtResource("3_36djf")

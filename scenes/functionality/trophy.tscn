@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cabpuu36xesfv"]
+
+[ext_resource type="Texture2D" uid="uid://u30dtoolmcy6" path="res://assets/sprites/trophy.png" id="1_nw064"]
+[ext_resource type="Script" path="res://scripts/trophy.gd" id="1_u67bp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh0rm"]
+size = Vector2(20, 32)
+
+[node name="Trophy" type="Area2D"]
+position = Vector2(0, -16)
+collision_mask = 7
+script = ExtResource("1_u67bp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nw064")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nh0rm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

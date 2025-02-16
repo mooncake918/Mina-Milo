@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6hhaayqa3jjj"]
+
+[ext_resource type="Texture2D" uid="uid://bfd3id1cedlb6" path="res://assets/sprites/world_tileset.png" id="1_8v8wf"]
+
+[sub_resource type="GDScript" id="GDScript_pc54l"]
+script/source = "extends RigidBody2D
+
+# Define a respawn position for the box
+var respawn_position = Vector2(85, 0)  # Set your respawn position here
+
+# Fall threshold for the box (if the box falls below this Y position, it will respawn)
+const FALL_THRESHOLD = -100  # The Y position where the box will respawn
+
+# Called every frame
+func _process(_delta: float) -> void:
+	# Check if the box has fallen off the map (below the fall threshold)
+	if position.y < FALL_THRESHOLD:
+		respawn_box()
+
+# Function to respawn the box
+func respawn_box():
+	# Reset the box's position
+	position = respawn_position  # Move the box back to the respawn position
+	
+	# Reset the velocity to zero to stop the box's movement
+	linear_velocity = Vector2.ZERO
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d4jh"]
+size = Vector2(16, 16)
+
+[node name="Pushable" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 3
+mass = 1.5
+script = SubResource("GDScript_pc54l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8d4jh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8v8wf")
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)

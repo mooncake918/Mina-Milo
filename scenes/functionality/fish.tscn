@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://dimp3lbbrbg8r"]
+
+[ext_resource type="Texture2D" uid="uid://bq3f4cxpq5g5l" path="res://assets/sprites/fish.png" id="1_d7xsu"]
+[ext_resource type="Script" path="res://scripts/fish.gd" id="1_fg1nm"]
+[ext_resource type="AudioStream" uid="uid://c03yjk5bgpwvt" path="res://assets/sounds/coin.wav" id="2_nl2gu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60qw2"]
+atlas = ExtResource("1_d7xsu")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3n5v"]
+atlas = ExtResource("1_d7xsu")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2yrq"]
+atlas = ExtResource("1_d7xsu")
+region = Rect2(30, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn3pw"]
+atlas = ExtResource("1_d7xsu")
+region = Rect2(50, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5os1"]
+atlas = ExtResource("1_d7xsu")
+region = Rect2(60, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3uai"]
+atlas = ExtResource("1_d7xsu")
+region = Rect2(90, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qad4n"]
+atlas = ExtResource("1_d7xsu")
+region = Rect2(100, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_700y8"]
+atlas = ExtResource("1_d7xsu")
+region = Rect2(110, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hk4ow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60qw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3n5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2yrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn3pw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5os1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3uai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qad4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_700y8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff3jk"]
+size = Vector2(10, 6)
+
+[node name="Fish" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_fg1nm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hk4ow")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ff3jk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_nl2gu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

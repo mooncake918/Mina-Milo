@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://dh02huij4u2v5"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gk8jm"]
+[ext_resource type="Texture2D" uid="uid://qttgvfp84ppu" path="res://assets/sprites/background.png" id="2_kjrda"]
+[ext_resource type="FontFile" uid="uid://cvn8jt56c4g55" path="res://assets/fonts/PixelOperator8.ttf" id="3_vytvw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01u8q"]
+texture = ExtResource("2_kjrda")
+modulate_color = Color(0.536454, 0.531715, 0.532895, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orrdm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbfwu"]
+bg_color = Color(0.813258, 0.813258, 0.813258, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5a72j"]
+bg_color = Color(0.462291, 0.462291, 0.462291, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mjgg"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 2
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gk8jm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_01u8q")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = 129.0
+offset_right = -100.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.230315, 0.230315, 0.230315, 1)
+theme_override_colors/font_pressed_color = Color(0.244776, 0.244776, 0.244776, 1)
+theme_override_colors/font_focus_color = Color(0.299547, 0.299547, 0.299547, 1)
+theme_override_colors/font_color = Color(0.588235, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_orrdm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lbfwu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5a72j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4mjgg")
+text = "▶️"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = 126.0
+offset_right = 141.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.230315, 0.230315, 0.230315, 1)
+theme_override_colors/font_pressed_color = Color(0.244776, 0.244776, 0.244776, 1)
+theme_override_colors/font_focus_color = Color(0.299547, 0.299547, 0.299547, 1)
+theme_override_colors/font_color = Color(0.588235, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_orrdm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lbfwu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5a72j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4mjgg")
+text = "X"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.0
+offset_top = -230.0
+offset_right = 444.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_vytvw")
+theme_override_font_sizes/font_size = 100
+text = "Whiskers 
+
+and Wishes"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

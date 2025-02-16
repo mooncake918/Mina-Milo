@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu7mpu0apd5jc"]
+
+[ext_resource type="Script" path="res://scripts/balloon.gd" id="1_1po5f"]
+[ext_resource type="Texture2D" uid="uid://cwgu2jalaw3j4" path="res://assets/sprites/balloon.png" id="1_5jp5w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gyg8"]
+atlas = ExtResource("1_5jp5w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkt7p"]
+atlas = ExtResource("1_5jp5w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xvgkx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gyg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkt7p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l56am"]
+radius = 93.4345
+
+[node name="Balloon" type="Area2D"]
+collision_mask = 6
+script = ExtResource("1_1po5f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xvgkx")
+autoplay = "default"
+frame = 1
+frame_progress = 0.00636422
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l56am")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
