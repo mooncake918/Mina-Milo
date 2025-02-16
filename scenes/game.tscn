@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c1hunafgedaen" path="res://scenes/functionality/player2.tscn" id="11_k1fhy"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="13_qcv1y"]
 [ext_resource type="PackedScene" uid="uid://dimp3lbbrbg8r" path="res://scenes/functionality/fish.tscn" id="14_nexvl"]
-[ext_resource type="PackedScene" uid="uid://bcf5ap05v6756" path="res://scenes/functionality/sidebar.tscn" id="15_dppaj"]
+[ext_resource type="PackedScene" uid="uid://bkyqpwm3h6smo" path="res://scenes/functionality/sidebar.tscn" id="15_dppaj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48a1t"]
 texture = ExtResource("1_0l2w1")

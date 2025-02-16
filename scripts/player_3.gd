@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var speed: float = 200.0
 @export var jump_force: float = -300.0
 @export var gravity: float = 800.0
@@ -9,6 +8,9 @@ var wall_direction: int = 0  # -1 = left wall, 1 = right wall
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+const PUSH_FORCE = 50
+const MAX_VELOCITY = 150
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
@@ -43,6 +45,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collision_crate = collision.get_collider()
+		if collision_crate.is_in_group("Crates") and abs(collision_crate.get_linear_velocity().x) < MAX_VELOCITY:
+			collision_crate.apply_central_impulse(collision.get_normal()*-PUSH_FORCE)
 
 	move_and_slide()
 
