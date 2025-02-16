@@ -1,3 +1,5 @@
+TextureRect
+Sprite2D
 CanvasLayer
 Node
 CollisionShape2D
