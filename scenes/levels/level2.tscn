@@ -75,7 +75,7 @@ position = Vector2(1164, 8)
 position = Vector2(516, 35)
 
 [node name="Fish2" parent="Fishies" index="1" instance=ExtResource("2_38c6p")]
-position = Vector2(28, -7)
+position = Vector2(23, -7)
 
 [node name="Fish3" parent="Fishies" index="2" instance=ExtResource("2_38c6p")]
 position = Vector2(639, -269)
@@ -182,6 +182,9 @@ position = Vector2(-1, -21)
 
 [node name="Crate" parent="." index="18"]
 position = Vector2(-10, 4)
+
+[node name="Fish" parent="." index="19"]
+position = Vector2(89, -72)
 
 [node name="Fish2" parent="." index="20"]
 position = Vector2(198, -154)
